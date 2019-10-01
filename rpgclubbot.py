@@ -153,14 +153,14 @@ async def move_old_gotm():
                     retired_games = sorted(retired_games,
                                            key=lambda c: str(c)[-2:])[0:2]
 
-                for r_g in retired_games:
-                    await r_g.edit(category=active_side_games)
+                    for r_g in retired_games:
+                        await r_g.edit(category=active_side_games)
 
-                sorted_actives = sorted(active_side_games.channels,
-                                        key=lambda s_g: str(s_g))
+                    sorted_actives = sorted(active_side_games.channels,
+                                            key=lambda s_g: str(s_g))
 
-                for s_g in sorted_actives[::-1]:
-                    await s_g.edit(position=0)
+                    for s_g in sorted_actives[::-1]:
+                        await s_g.edit(position=0)
 
             await asyncio.sleep(86400) #check every 24 hours
         except:
@@ -169,4 +169,4 @@ async def move_old_gotm():
 client.loop.create_task(move_retired_sidegames())
 client.loop.create_task(move_old_gotm())
 
-client.run('token goes here')
+client.run('token_goes_here')
